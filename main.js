@@ -9,12 +9,12 @@ document.querySelector('#send').addEventListener("click", () => {
      Caso o campo "Nome" tenha sido preenchido, focará no campo "Email", e assim por diante.
      No caso de todos os campos terem sido preenchidos, 
      exibirá a mensagem de sucesso ao clicar no botão "ENVIAR". */
-  if (nome === "" && email === "" && msg === "") { 
+  if (nome === "" && (email === "" || email.indexOf("@") === -1) && msg === "") { 
     alert('Preencha o campo "Nome".\nPreencha o campo "Email" com um email válido.\nPreencha o campo "Mensagem".'); 
     document.querySelector("#name").focus();
     return false;
   }
-  else if(nome !== "" && email === "" && msg === "") {
+  else if(nome !== "" && (email === "" || email.indexOf("@") === -1) && msg === "") {
       alert('Preencha o campo "Email" com um email válido.\nPreencha o campo "Mensagem".');
       document.querySelector("#email").focus();
       return false;
